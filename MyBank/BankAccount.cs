@@ -10,12 +10,17 @@ namespace MyBank
         public string Number { get; }
         public string Owner { get; set; }
         public decimal Balance { get; }
+        private static int accountNumberSeed = 123456789;
+
+        private List<Transaction> allTransactions = new List<Transaction>();
+
 
         public BankAccount(string name, decimal initiaBalance)
         {
             Owner = name;
             Balance = initiaBalance;
-
+            Number = accountNumberSeed.ToString();
+            accountNumberSeed++;
         }
 
 
